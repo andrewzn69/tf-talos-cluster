@@ -97,6 +97,10 @@ data "talos_cluster_health" "this" {
   worker_nodes         = var.worker_ips
   endpoints            = var.control_plane_ips
 
+  timeouts = {
+    read = "20m"
+  }
+
   depends_on = [talos_machine_bootstrap.this]
 }
 
